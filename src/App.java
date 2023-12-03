@@ -1,10 +1,14 @@
+import user.domain.AConnectionMaker;
+import user.domain.ConnectionMaker;
 import user.domain.User;
 import user.domain.UserDao;
 
 public class App {
 
     public static void main(String[] args) throws Exception {
-        UserDao dao = new UserDao();
+
+        ConnectionMaker connectionMaker = new AConnectionMaker();
+        UserDao dao = new UserDao(connectionMaker);
 
         User user = new User();
         user.setId("1");
