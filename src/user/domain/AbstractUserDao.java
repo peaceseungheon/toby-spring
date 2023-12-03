@@ -1,8 +1,11 @@
 package user.domain;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class UserDao {
+public abstract class AbstractUserDao {
 
     public void addUser(User user) throws ClassNotFoundException, SQLException {
         Connection connection = this.getConnection();
@@ -40,8 +43,5 @@ public class UserDao {
         return user;
     }
 
-    public Connection getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        return DriverManager.getConnection("jdbc:mysql//localhost:3306/toby_spring", "root", "dustn@@0317");
-    }
+    public abstract Connection getConnection() throws ClassNotFoundException, SQLException;
 }
