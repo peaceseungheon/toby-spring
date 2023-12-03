@@ -4,10 +4,10 @@ import java.sql.*;
 
 public class UserDao {
 
-    private SimpleConnectionMaker connectionMaker;
+    private ConnectionMaker connectionMaker;
 
     public UserDao(){
-        connectionMaker = new SimpleConnectionMaker();
+        this.connectionMaker = new AConnectionMaker();
     }
 
     public void addUser(User user) throws ClassNotFoundException, SQLException {
